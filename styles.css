@@ -1,0 +1,360 @@
+:root {
+  --ff-main: 'Poppins', sans-serif; /* 300/400/500/700 */
+
+  --col-main-text: #262626;
+  --col-main-background: #f5f5f5;
+  --col-background-highlight: #f8fafc;
+  --col-highlight: #34d399;
+  --col-highlight-dark: #047857;
+  --col-modal-background: rgba(0, 0, 0, 0.2);
+  --col-delete: #c25959;
+  --col-amend: rgb(206, 163, 83);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  height: 100%;
+  width: 100vw;
+  color: var(--col-main-text);
+  font-family: var(--ff-main);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+body.dark {
+  --col-main-text: #d3d0d0;
+  --col-main-background: #1b215c;
+  --col-background-highlight: #1e1c24;
+  --col-modal-background: rgba(255, 255, 200, 0.1);
+  --col-delete: #913333;
+  --col-amend: rgb(138, 103, 39);
+  --box-shadow: rgba(221, 221, 221, 0.24) 0px 3px 8px;
+}
+
+/* Header */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  width: 100vw;
+  height: min-content;
+  background-color: var(--col-background-highlight);
+}
+
+.header-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-title h1 {
+  color: var(--col-main-text);
+}
+
+.header-title i {
+  font-size: 3rem;
+  background: rgb(29, 253, 252);
+  background: linear-gradient(
+    86deg,
+    rgba(29, 253, 252, 0.8701855742296919) 14%,
+    rgba(29, 253, 190, 0.6558998599439776) 50%,
+    rgba(85, 215, 107, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.header-buttons button {
+  outline: none;
+  border: none;
+  font-size: 2.5rem;
+  background-color: var(--col-background-highlight);
+  color: var(--col-main-text);
+}
+
+.open-book-modal:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  background: rgb(10, 186, 104);
+  background: linear-gradient(
+    86deg,
+    rgba(10, 186, 104, 0.865983893557423) 50%,
+    rgba(51, 138, 87, 1) 86%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.darkmode:hover {
+  transform: scale(1.1);
+  background: rgb(3, 5, 4);
+  background: linear-gradient(
+    86deg,
+    rgba(3, 5, 4, 0.865983893557423) 9%,
+    rgba(227, 225, 213, 1) 86%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Library cards section */
+
+.booklist {
+  height: 100%;
+  width: 100vw;
+}
+
+.booklist-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-auto-rows: min-content;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.book-card {
+  padding: 0.5rem;
+  border: 2px solid var(--col-main-text);
+  border-radius: 5px;
+  background-color: var(--col-background-highlight);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-shadow: var(--box-shadow);
+}
+
+.book-card:hover {
+  transform: scale(1.005);
+}
+
+.book-card-author {
+  font-size: large;
+}
+
+.book-card-pages {
+  font-size: medium;
+}
+
+.book-card-description {
+  font-size: small;
+}
+
+.book-card-interactive {
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.book-card-checkboxes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.book-card-read {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-card-read label {
+  padding: 0 0.2rem;
+}
+
+input[type='checkbox'].book-card-read {
+  font-size: 30px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 1.5em;
+  height: 0.8em;
+  background: #ddd;
+  border-radius: 3em;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+input[type='checkbox'].book-card-read:checked {
+  background: rgba(10, 186, 104, 1);
+}
+
+input[type='checkbox'].book-card-read:after {
+  position: absolute;
+  content: '';
+  width: 0.9em;
+  height: 0.9em;
+  border-radius: 50%;
+  background: #fff;
+  -webkit-box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.3);
+  -webkit-transform: scale(0.7);
+  transform: scale(0.7);
+  left: 0;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+input[type='checkbox'].book-card-read:checked:after {
+  left: calc(100% - 0.9em);
+}
+
+.book-card-buttons {
+  display: flex;
+  height: min-content;
+  width: min-content;
+  gap: 0.4rem;
+}
+
+.book-card-button {
+  font-size: x-large;
+  background-color: var(--col-main-text);
+  border: none;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+}
+
+.book-card-button:first-child {
+  color: var(--col-amend);
+}
+
+.book-card-button:nth-child(2) {
+  color: var(--col-delete);
+}
+
+.book-card-button:hover {
+  transform: scale(1.02);
+}
+
+main {
+  height: 100%;
+  width: 100vw;
+  background-color: var(--col-main-background);
+}
+
+/* Add book modal section */
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--col-modal-background);
+}
+
+.book-form {
+  background-color: var(--col-background-highlight);
+  width: min-content;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.book-form-element {
+  padding: 0.2rem;
+}
+
+.book-form-element textarea {
+  width: 100%;
+  border: 1px solid var(--col-main-text);
+}
+
+.book-form-element input {
+  border: 1px solid var(--col-main-text);
+}
+
+.book-form-rating {
+  border: 1px solid var(--col-main-text);
+}
+
+.orange-star {
+  color: #f90;
+}
+
+.book-form-rating input {
+  display: none;
+}
+
+.book-form-rating label {
+  color: #ccc;
+  cursor: pointer;
+}
+
+.book-form-rating :checked,
+.book-form-rating :checked + label {
+  color: #f90;
+}
+
+.book-form-rating label:hover,
+.book-form-rating label:hover {
+  color: #fc0;
+}
+
+.book-form-element input[type=checkbox] {
+  accent-color: var(--col-highlight);
+}
+
+.form-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: larger;
+}
+
+.form-buttons button {
+  border: 2px solid var(--col-main-text);
+  border-radius: 0.5rem;
+  padding: 0.2rem;
+  box-shadow: var(--box-shadow);
+}
+
+.form-buttons button:hover {
+  transform: scale(1.05);
+}
+
+.book-form-submit {
+  display: block;
+  color: var(--col-highlight-dark);
+}
+
+.book-form-update {
+  display: block;
+  color: var(--col-amend);
+}
+
+.book-form-close {
+  color: var(--col-delete);
+}
+
+/* Media query for small screens to fix column centering */
+
+@media screen and (max-width: 600px) {
+  .booklist-wrapper {
+    grid-template-columns: 1fr;
+  }
+}

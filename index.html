@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="main.js" defer></script>
+    <title>Bookshelf</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-title">
+        <i class="bx bx-library"></i>
+        <h1>Bookshelf</h1>
+      </div>
+      <div class="header-buttons">
+        <button class="open-book-modal" id="open-book-modal">
+          <i class="bx bx-book-add"></i>
+        </button>
+        <button class="darkmode" id="darkmode-toggle">
+          <i class="bx bx-sun" id="darkmode-icon"></i>
+        </button>
+      </div>
+    </header>
+    <main class="booklist">
+      <div class="booklist-wrapper">
+<!--         <div class="book-card">
+          <h2 class="book-card-title">Under Heaven</h2>
+          <p class="book-card-author">Guy Gavriel Kay</p>
+          <p class="book-card-pages">567</p>
+          <p class="book-card-description">
+            In Under Heaven, Kay tells a story of honor and power, this time in
+            a setting that evokes the dazzling Tang Dynasty of eighth-century
+            China. In recognition of his service to the Emperor of Kitai, Shen
+            Tai has been sent a mysterious and dangerous gift: 250 Sardian
+            horses. Wisely the gift comes with the stipulation that the horses
+            must be claimed in person. Otherwise, he would probably be dead
+            already.
+          </p>
+          <div class="book-card-interactive">
+            <div class="book-card-checkboxes">
+              <p class="book-card-rating">5</p>
+              <div class="book-card-read">
+                <label for="book-card-read">Read</label>
+                <input
+                  type="checkbox"
+                  id="book-card-read"
+                  name="book-card-read"
+                />
+              </div>
+            </div>
+            <div class="book-card-buttons">
+              <button type="button" class="book-card-button" id="edit-button">
+                <i class="bx bx-edit-alt"></i>
+              </button>
+              <button type="button" class="book-card-button" id="delete-button">
+                <i class="bx bx-trash"></i>
+              </button>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </main>
+    <div class="modal" id="modal">
+      <form action="#" class="book-form" id="book-form">
+        <div class="book-form-element">
+          <label for="book-form-title">Title</label>
+          <input
+            type="text"
+            name="book-form-title"
+            id="book-form-title"
+            placeholder="The Tale of Scrotie McBoogerballs"
+            required
+          />
+        </div>
+        <div class="book-form-element">
+          <label for="book-form-author">Author</label>
+          <input
+            type="text"
+            name="book-form-author"
+            id="book-form-author"
+            placeholder="Butters Stotch"
+            required
+          />
+        </div>
+        <div class="book-form-element">
+          <label for="book-form-pages">No. of pages</label>
+          <input
+            type="number"
+            name="book-form-pages"
+            id="book-form-pages"
+            max="99999"
+            placeholder="465"
+            required
+          />
+        </div>
+        <div class="book-form-element">
+          <label for="book-form-description">Description</label>
+          <textarea
+            name="book-form-description"
+            id="book-form-description"
+            rows="5"
+            placeholder="It was a warm summer morning when Scrotie McBoogerballs awoke to find his..."
+          ></textarea>
+        </div>
+        <div class="book-form-element">
+          <fieldset class="book-form-rating">
+            <legend>Rating</legend>
+            <input
+              type="radio"
+              id="rating1"
+              name="rating"
+              class="book-rating"
+              value="1"
+            />
+            <label for="rating1">1<i class='bx bxs-star'></i></label>
+            <input
+              type="radio"
+              id="rating2"
+              name="rating"
+              class="book-rating"
+              value="2"
+            />
+            <label for="rating2">2<i class='bx bxs-star'></i></label>
+            <input
+              type="radio"
+              id="rating3"
+              name="rating"
+              class="book-rating"
+              value="3"
+            />
+            <label for="rating3">3<i class='bx bxs-star'></i></label>
+            <input
+              type="radio"
+              id="rating4"
+              name="rating"
+              class="book-rating"
+              value="4"
+            />
+            <label for="rating4">4<i class='bx bxs-star'></i></label>
+            <input
+              type="radio"
+              id="rating5"
+              name="rating"
+              class="book-rating"
+              value="5"
+            />
+            <label for="rating5">5<i class='bx bxs-star'></i></label>
+          </fieldset>
+        </div>
+        <div class="book-form-element">
+          <label for="book-form-read">Read?</label>
+          <input type="checkbox" name="book-form-read" id="book-form-read" />
+        </div>
+        <div class="book-form-element form-buttons">
+          <button type="submit" id="book-form-submit" class="book-form-submit">
+            Add<i class="bx bxs-book-add"></i>
+          </button>
+          <button type="button" id="book-form-update" class="book-form-update">
+            Update<i class='bx bx-edit'></i>
+          </button>
+          <button type="button" class="book-form-close" id="book-form-close">
+            Close <i class="bx bxs-x-circle"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
